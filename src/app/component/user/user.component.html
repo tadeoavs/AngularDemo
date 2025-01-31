@@ -1,0 +1,36 @@
+<p>
+  {{ title }} works!
+</p>
+
+<div *ngIf="isAdmin; else userTemplate">
+  <p>is admin user</p>
+</div>
+
+<ng-template #userTemplate>
+  <p>is normal user</p>
+</ng-template>
+
+<app-calc [title]="calcTitle" (dispatchEvent)="handleEvent($event)"></app-calc>
+
+<ion-button (click)="toggleAdmin()">Toggle Admin</ion-button>
+
+<p> {{ amount | currency: 'USD' }} 
+
+</p>
+
+<p>
+  {{ todayIs | date: 'short' }}
+</p>
+
+<p>
+  Amount with taxes: {{ amount | tax | currency: 'USD' }}
+</p>
+
+<ion-alert
+  [isOpen]="isAlertOpen"
+  header="Alerta"
+  subHeader="hola"
+  [message]="alertMessage"
+  [buttons]="alertButtons"
+  (didDismiss)="handleEvent('')"
+></ion-alert>
