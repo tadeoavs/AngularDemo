@@ -23,8 +23,26 @@
 </p>
 
 <p>
-  Amount with taxes: {{ amount | tax | currency: 'USD' }}
+  Amount with taxes: {{ amount | tax:8 | currency: 'USD' }}
 </p>
+
+<h1>My first attribute directive</h1>
+
+<h2>Pick a highlight color</h2>
+
+<div>
+  <input type="radio" name="colors" (click)="color = 'lightgreen'">Green
+  <input type="radio" name="colors" (click)="color = 'yellow'">Yellow
+  <input type="radio" name="colors" (click)="color = 'cyan'">Cyan
+</div>
+
+<p [appHighlight]="color">
+  Highlight me!
+</p>
+
+<a [routerLink]="['']">Go Back</a>
+
+<ion-button (click)="loginOut()">Log Out</ion-button>
 
 <ion-alert
   [isOpen]="isAlertOpen"

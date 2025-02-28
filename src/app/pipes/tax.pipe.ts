@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TaxPipe implements PipeTransform {
 
-  transform(value: number): number {
-    const tax = value + (value * 0.16);
+  transform(value: number, taxAmount: number): number {
+    const tax = value + (value * taxAmount/100);
     return tax;
   }
 
